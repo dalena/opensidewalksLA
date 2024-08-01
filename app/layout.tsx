@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Balto from 'next/font/local'
-import ADWTS from 'next/font/local'
 import Broadacre from 'next/font/local'
-import Area from 'next/font/local'
-import { Stint_Ultra_Expanded } from 'next/font/google'
 import { Overpass } from 'next/font/google'
+import Area from 'next/font/local'
+import Balto from 'next/font/local'
+import { Stint_Ultra_Expanded } from 'next/font/google'
+import ADWTS from 'next/font/local'
 import "./globals.css";
 
 const broadacre = Broadacre({
@@ -18,7 +18,7 @@ const stint = Stint_Ultra_Expanded({
 })
 const overpass = Overpass({
   subsets: ['latin'],
-  weight: ['600'],
+  weight: ['400'],
   variable: '--font-overpass'
 })
 const adwts = ADWTS({
@@ -66,7 +66,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={broadacre.className}>
+      <body className={`bg-silver-300 text-silver-950 ${broadacre.variable} ${stint.variable} ${overpass.variable} ${adwts.variable} ${balto.variable} ${area.variable}`}>
         {children}
       </body>
     </html>

@@ -1,8 +1,8 @@
 import { Rule } from "sanity";
 
-export const post = {
-    name: 'post',
-    title: 'Post',
+export const article = {
+    name: 'article',
+    title: 'Article',
     type: 'document',
 
     fields: [
@@ -11,6 +11,16 @@ export const post = {
             title: 'Title',
             type: 'string',
             validation: (Rule: Rule) => Rule.required().error("Required"),
+        },
+        {
+            name: 'source',
+            title: 'Source',
+            type: 'string',
+        },
+        {
+            name: 'year',
+            title: 'Year',
+            type: 'string',
         },
         {
             name: 'slug',
@@ -27,6 +37,11 @@ export const post = {
             fields: [
                 { type: 'string', name: 'alt', title: 'Alt' },
             ],
+        },
+        {
+            name: 'url',
+            title: 'URL',
+            type: 'url',
         },
         {
             name: 'publishedAt',
@@ -50,14 +65,6 @@ export const post = {
                     type: 'image',
                     fields: [{ type: 'text', name: 'alt', title: 'Alt' }]
                 }
-            ],
-        },
-        {
-            name: 'tags',
-            title: 'Tags',
-            type: 'array',
-            of: [
-                { type: 'reference', to: [{ type: 'tag' }] },
             ],
         },
     ]

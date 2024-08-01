@@ -14,7 +14,7 @@ export const About = () => {
       <p>
         You can contact us at <Link href="mailto:opensidewalksla@gmail.com" className="hover:text-gray-300 underline	 decoration-wavy">opensidewalksla@gmail.com</Link>
       </p>
-      <h3 className='font-adwts font-bold text-5xl tracking-widest py-8'>Policy Recommendation</h3>
+      <h3 className='font-adwts font-bold text-4xl tracking-widest py-8'>Policy Recommendation</h3>
       <InfoBox>
         <ul className='list-disc p-4'>
           <li className='py-2'>
