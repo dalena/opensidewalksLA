@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="bg-red-500 text-white z-50 flex w-full flex-row justify-between md:p-8">
+    <footer className="bg-red-500 text-white flex w-full flex-row justify-between pb-10 md:p-8">
       <div className="flex w-full justify-start pl-10">
         Open Sidewalks LA © 2024
       </div>

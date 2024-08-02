@@ -7,12 +7,11 @@ export const revalidate = 60;
 
 export default async function Articles() {
   const articles: Article[] = await getArticles();
-  const allArticles = articles?.slice(0, 3);
   return (
     <Section sectionTitle="Articles" anchor="articles">
       <div className="flex flex-col gap-6 md:mx-6">
-        {allArticles?.length > 0 &&
-          allArticles?.map((article) => (
+        {articles?.length > 0 &&
+          articles?.map((article) => (
             <ArticleCard key={article?._id} article={article} />
           ))}
       </div>

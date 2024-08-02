@@ -14,12 +14,12 @@ export const Nav = () => {
     <nav className="top-0 z-50 w-full py-6 md:p-8">
       <div className="container mx-auto flex flex-col items-center justify-between gap-6 md:flex-row">
         <div className="text-center font-balto text-xl font-bold md:text-2xl">
-          <Link
+          <a
             className="flex cursor-pointer flex-col items-center gap-4 space-x-4 rounded-md border-2 bg-silver-100 px-2 py-1 text-silver-950 shadow-2xl outline outline-4 outline-silver-100 transition ease-in-out md:flex-row"
             href="/"
           >
             <h1>Open Sidewalks LA</h1>
-          </Link>
+          </a>
         </div>
         <ul className="flex cursor-pointer space-x-4 rounded-md border-2 bg-azul-600 px-2 py-1 font-overpass text-base font-bold text-silver-50 shadow-2xl outline outline-4 outline-azul-600">
           {navLinks.map((link, index) => (
