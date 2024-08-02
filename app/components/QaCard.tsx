@@ -10,7 +10,7 @@ interface Props {
 
 const QaCard = ({ question }: Props) => {
   return (
-    <div>
+    <div className="bg-sign-300">
       <p className="line-clamp-4 font-overpass text-base">
         {question?.question}
       </p>

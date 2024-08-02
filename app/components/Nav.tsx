@@ -22,9 +22,9 @@ export const Nav = () => {
           </Link>
         </div>
         <ul className="flex cursor-pointer space-x-4 rounded-md border-2 bg-azul-600 px-2 py-1 font-overpass text-base font-bold text-silver-50 shadow-2xl outline outline-4 outline-azul-600">
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <li
-              key={link.label}
+              key={index}
               className="transition ease-in-out hover:underline hover:decoration-wavy hover:underline-offset-4"
             >
               {link.isScroll ? (

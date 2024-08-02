@@ -33,22 +33,11 @@ const AddMessage = () => {
   };
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 flex w-full justify-center">
       <form
-        className="flex flex-col rounded-2xl border-2 bg-azul-600 p-8 text-silver-50 shadow-2xl outline outline-4 outline-azul-600"
+        className="flex flex-col rounded-2xl border-2 bg-azul-600 p-8 text-silver-50 shadow-2xl outline outline-4 outline-azul-600 md:w-[1100px]"
         onSubmit={handleSubmit((data) => onSubmit(data))}
       >
-        {/* <div className='py-4 w-full flex flex-col justify-center'>
-                    <p className="w-fit">
-                        Send us an email at
-                    </p>
-                    <div className="bg-sign-900 w-fit">
-                        <Link href="mailto:opensidewalksla@gmail.com" className="hover:text-gray-300 underline decoration-wavy">opensidewalksla@gmail.com</Link>
-                    </div>
-                    <p className="w-fit">
-                        or leave us a message below
-                    </p>
-                </div> */}
         <div className="flex w-full flex-col justify-center gap-2 text-center">
           <div className="w-full">
             <span className="w-fit">Send us an email at</span>
