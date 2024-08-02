@@ -9,7 +9,7 @@ export default async function Faq() {
   const questions: Question[] = await getQuestions();
   return (
     <Section sectionTitle="FAQ" anchor="faq">
-      <div className="flex -translate-y-10 flex-col gap-6">
+      <div className="flex w-full flex-col justify-center gap-6">
         {questions?.length > 0 &&
           questions?.map((question) => (
             <QaCard key={question?._id} question={question} />

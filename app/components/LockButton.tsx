@@ -6,7 +6,11 @@ interface LockButtonProps {
 
 const LockButton: React.FC<LockButtonProps> = ({ gateOpen, setGateOpen }) => {
   return (
-    <button onClick={() => setGateOpen(!gateOpen)}>
+    <button
+      onClick={() => setGateOpen(!gateOpen)}
+      className="drop-shadow-[2px_14px_24px_rgba(48,48,48,0.9)] duration-700 hover:ring-stop-500"
+      title="Help us unlock the gates!"
+    >
       <svg
         width="68"
         height="100"

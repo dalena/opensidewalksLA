@@ -11,18 +11,26 @@ const ScrollToAnchor = ({
   children: ReactNode;
 } & React.HTMLAttributes<HTMLSpanElement>) => {
   const router = useRouter();
-  return (
-    <span
-      onClick={(e) => {
-        const element = document?.getElementById(anchor);
 
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-          // router.push(`#${anchor}`)
-        }
-      }}
-      {...props}
-    >
+  const handleClick = async (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
+  ) => {
+    e.preventDefault();
+    await router.push("/");
+
+    // Delay scrolling to allow navigation to complete and add a noticeable delay
+    setTimeout(() => {
+      const element = document?.getElementById(anchor);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+      // Update the URL with the anchor hash
+      window.history.pushState({}, "", `/#${anchor}`);
+    }, 300); // 500ms delay
+  };
+
+  return (
+    <span onClick={handleClick} {...props}>
       {children}
     </span>
   );
