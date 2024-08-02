@@ -11,8 +11,12 @@
   "dependencies": {
     "@next/font": "^14.2.5",
     "@portabletext/react": "^3.1.0",
+    "@radix-ui/react-accordion": "^1.2.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.52.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.424.0",
     "next": "14.2.5",
     "next-sanity": "^9.4.2",
     "next-themes": "^0.3.0",
@@ -21,7 +25,9 @@
     "react-hook-form": "^7.52.1",
     "react-icons": "^5.2.1",
     "sanity": "^3.52.2",
-    "styled-components": "^6.1.12"
+    "styled-components": "^6.1.12",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
