@@ -1,32 +1,34 @@
 "use client";
 
-import Image from 'next/image'
-import { useState, useEffect } from 'react';
-import GateLeft from './GateLeft';
-import GateRight from './GateRight';
-import { useTheme } from 'next-themes';
-import OpenGatesText from './OpenGatesText';
+import { useEffect, useState } from "react";
+import { Gates } from "./Gates";
+
+const classesGateOpen =
+  "w-full h-full bg-gradient-to-b from-[#81b82a] from-[15svh] via-[#a1d64c] via-[45svh] to-silver-300 to-[100svh]";
+
+const classesGateClosed = "w-full h-full bg-silver-300";
 
 export const Hero = () => {
+  const [gateOpen, setGateOpen] = useState(false);
 
+  useEffect(() => {
+    const element = document?.querySelector?.("#gradient");
+    element?.removeAttribute("class");
 
+    if (gateOpen) {
+      element?.classList.add(...classesGateOpen.split(" "));
+    } else {
+      element?.classList.add(...classesGateClosed.split(" "));
+    }
+  }, [gateOpen]);
 
-  const [gateOpen, setGateOpen] = useState(false)
   return (
-    <section className='w-full h-full pt-[110px]'>
-      <div className='flex flex-row items-center justify-center bg-bglite w-full py-6 overflow-clip'>
-        <div className={`w-full duration-500 flex justify-end pr-2 hover:cursor-pointer ${gateOpen && "-translate-x-full"}`} onClick={() => {
-          setGateOpen((prev) => !prev);
-        }}><GateLeft /></div>
-        <div className={`w-full duration-500 flex justify-start pl-2 hover:cursor-pointer ${gateOpen && "translate-x-full"}`} onClick={() => {
-          setGateOpen((prev) => !prev);
-        }}><GateRight /></div>
+    <section className="h-full w-full md:pt-[40px]">
+      <div className="hidden">
+        <div className={classesGateOpen}></div>
+        <div className={classesGateClosed}></div>
       </div>
-      {/* {gateOpen && (
-        <div className=''>
-          <OpenGatesText />
-        </div>
-      )} */}
+      <Gates gateOpen={gateOpen} setGateOpen={setGateOpen} />
     </section>
-  )
-}
+  );
+};
