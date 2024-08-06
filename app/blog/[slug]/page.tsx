@@ -17,7 +17,7 @@ export const revalidate = 60;
 const page = async ({ params }: Params) => {
   const post: Post = await getSinglePost(params?.slug);
   return (
-    <section className="text-white w-full px-8">
+    <section className="text-white w-full">
       <div className="relative flex h-[500px] w-full justify-center overflow-clip rounded-2xl shadow-xl">
         <Image
           src={post?.image}
@@ -27,9 +27,9 @@ const page = async ({ params }: Params) => {
           className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
-      <div className="-translate-y-32">
+      <div className="-translate-y-52 md:-translate-y-32">
         <PostBox>
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-row gap-2 md:gap-4">
             <div>
               <h2 className="font-balto text-3xl font-bold tracking-wide lg:text-4xl">
                 {post?.title}
@@ -75,12 +75,15 @@ const richTextStyles = `
 flex
 flex-col
 gap-2
-text-lg
+text-base
+lg:text-lg
 font-overpass
 prose-headings:mb-1
-prose-headings:text-2xl
+prose-headings:text-xl
+md:prose-headings:text-2xl
 prose-headings:font-bold
-prose-p:mb-4
+prose-p:mb-3
+lg:prose-p:mb-4
 prose-p:leading-12
 prose-li:list-disc
 prose-li:leading-12

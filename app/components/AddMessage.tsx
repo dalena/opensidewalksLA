@@ -12,7 +12,8 @@ const AddMessage = () => {
   } = useForm();
 
   const labelClasses = "font-broadacre text-base pb-2";
-  const inputClasses = "mb-4 rounded-md bg-azul-700 text-silver-100 p-2";
+  const inputClasses =
+    "mb-2 md:mb-8 rounded-md bg-silver-200 text-silver-100 p-2";
   const errorClasses =
     "mb-2 font-broadacre text-sm w-fit h-fit px-2 rounded-xl underline decoration-wavy underline-offset-4 decoration-stop-400";
   const labelErrorClasses = "flex flex-row gap-6 items-center justify-between";
@@ -33,72 +34,68 @@ const AddMessage = () => {
   };
 
   return (
-    <div className="mb-20 flex w-full justify-center">
-      <form
-        className="flex flex-col rounded-2xl border-2 bg-azul-600 p-8 text-silver-50 shadow-2xl outline outline-4 outline-azul-600 md:w-[1100px]"
-        onSubmit={handleSubmit((data) => onSubmit(data))}
-      >
-        <div className="flex w-full flex-col justify-center gap-2 text-center">
-          <div className="w-full">
-            <span className="w-fit">Send us an email at</span>
-          </div>
-          <div className="w-full skew-x-6 skew-y-2">
-            <span className="w-fit rounded-sm bg-sign-500 px-2 font-balto font-bold text-silver-950">
-              opensidewalksla@gmail.com
-            </span>
-          </div>
-          <div className="w-full">
-            <span className="w-fit">or leave us a message below</span>
-          </div>
+    <form
+      className="flex w-full flex-col rounded-2xl border-2 bg-silver-300 p-8 text-silver-950"
+      onSubmit={handleSubmit((data) => onSubmit(data))}
+    >
+      <div className="flex w-full flex-col justify-center gap-2 text-center">
+        <div className="w-full">
+          <span className="w-fit">Send us an email at</span>
         </div>
-        <div className={labelErrorClasses}>
-          <label className={labelClasses}>Name</label>
-          {errors.name && (
-            <span className={errorClasses}>Name is required.</span>
-          )}
+        <div className="w-full skew-x-6 skew-y-2">
+          <span className="w-fit rounded-sm bg-sign-500 px-2 font-balto font-bold text-silver-950">
+            opensidewalksla@gmail.com
+          </span>
         </div>
-        <input
-          className={inputClasses}
-          {...register("name", { required: true })}
-        />
-        <div className={labelErrorClasses}>
-          <label className={labelClasses}>Email</label>
-          {errors.email && (
-            <p className={errorClasses}>Please enter a valid Email Address.</p>
-          )}
+        <div className="w-full">
+          <span className="w-fit">or leave us a message below</span>
         </div>
-        <input
-          className={inputClasses}
-          {...register("email", {
-            required: true,
-            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-          })}
-        />
-        <div className={labelErrorClasses}>
-          <label className={labelClasses}>Message</label>
-          {errors.message && (
-            <p className={errorClasses}>
-              Your message must be min 2 and max 2000 characters.
-            </p>
-          )}
-        </div>
-        <textarea
-          className={inputClasses}
-          {...register("message", {
-            required: true,
-            minLength: 2,
-            maxLength: 2000,
-          })}
-        />
+      </div>
+      <div className={labelErrorClasses}>
+        <label className={labelClasses}>Name</label>
+        {errors.name && <span className={errorClasses}>Name is required.</span>}
+      </div>
+      <input
+        className={inputClasses}
+        {...register("name", { required: true })}
+      />
+      <div className={labelErrorClasses}>
+        <label className={labelClasses}>Email</label>
+        {errors.email && (
+          <p className={errorClasses}>Please enter a valid Email Address.</p>
+        )}
+      </div>
+      <input
+        className={inputClasses}
+        {...register("email", {
+          required: true,
+          pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        })}
+      />
+      <div className={labelErrorClasses}>
+        <label className={labelClasses}>Message</label>
+        {errors.message && (
+          <p className={errorClasses}>
+            Your message must be min 2 and max 2000 characters.
+          </p>
+        )}
+      </div>
+      <textarea
+        className={inputClasses}
+        {...register("message", {
+          required: true,
+          minLength: 2,
+          maxLength: 2000,
+        })}
+      />
 
-        <input
-          className={`${submitClasses} ${isSubmitting ? "opacity-50" : ""}`}
-          type="submit"
-          disabled={isSubmitting}
-          value={isSubmitting ? "Submitting..." : "Submit"}
-        />
-      </form>
-    </div>
+      <input
+        className={`${submitClasses} ${isSubmitting ? "opacity-50" : ""}`}
+        type="submit"
+        disabled={isSubmitting}
+        value={isSubmitting ? "Submitting..." : "Submit"}
+      />
+    </form>
   );
 };
 

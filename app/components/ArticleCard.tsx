@@ -26,7 +26,7 @@ const ArticleCard = ({ article }: Props) => {
           </div>
           <div className="flex-none md:w-[70%] md:-translate-x-14">
             <div className="flex w-full flex-row justify-between">
-              <h2 className="pb-2 font-balto text-xl font-bold tracking-wide md:w-[90%] lg:text-2xl">
+              <h2 className="pb-2 font-balto text-xl font-bold leading-tight tracking-wide md:w-[90%] lg:text-2xl">
                 {article?.title}
               </h2>
               <div className="flex justify-end align-middle md:w-[10%]">

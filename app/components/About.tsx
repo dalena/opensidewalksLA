@@ -12,9 +12,7 @@ export const About = () => {
         Club Park to catch his bus. We have collected over 250 signatures in
         support of opening the gates.
       </p>
-      <h3 className="py-8 font-adwts text-4xl font-bold tracking-widest">
-        Policy Recommendation
-      </h3>
+      <h3 className="py-8 text-3xl md:text-4xl">Policy Recommendation</h3>
       <InfoBox>
         <ul className="list-disc p-4">
           <li className="py-2">

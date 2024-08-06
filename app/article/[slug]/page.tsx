@@ -17,7 +17,7 @@ const page = async ({ params }: Params) => {
   const article: Article = await getSingleArticle(params?.slug);
   return (
     <div>
-      <section className="text-white w-full px-8">
+      <section className="text-white w-full md:px-4">
         <div className="relative flex h-[500px] w-full justify-center overflow-clip rounded-2xl shadow-xl">
           <Image
             src={article?.image}
@@ -27,9 +27,9 @@ const page = async ({ params }: Params) => {
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
-        <div className="-translate-y-32">
+        <div className="-translate-y-52 md:-translate-y-32">
           <PostBox>
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-2 md:gap-4">
               <h2 className="font-balto text-3xl font-bold leading-tight tracking-wide lg:text-4xl">
                 {article?.title}
               </h2>

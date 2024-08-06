@@ -1,32 +1,35 @@
 "use client";
-import { useRouter } from "next/navigation";
 import React, { ReactNode } from "react";
 
 const ScrollToAnchor = ({
   anchor,
   children,
+  offset = 0, // Add an offset prop with a default value
   ...props
 }: {
   anchor: string;
   children: ReactNode;
+  offset?: number; // Define the offset prop type
 } & React.HTMLAttributes<HTMLSpanElement>) => {
-  const router = useRouter();
-
-  const handleClick = async (
-    e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
-  ) => {
+  const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     e.preventDefault();
-    await router.push("/");
 
-    // Delay scrolling to allow navigation to complete and add a noticeable delay
+    // Delay scrolling to allow any necessary operations to complete
     setTimeout(() => {
       const element = document?.getElementById(anchor);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        const elementPosition =
+          element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
       }
       // Update the URL with the anchor hash
       window.history.pushState({}, "", `/#${anchor}`);
-    }, 300); // 500ms delay
+    }, 100); // 100ms delay
   };
 
   return (

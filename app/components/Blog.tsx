@@ -5,11 +5,11 @@ import PostCard from "./PostCard";
 
 export const revalidate = 60;
 
-export default async function RecentPosts() {
+export default async function Blog() {
   const posts: Post[] = await getPosts();
   const recentPosts = posts?.slice(0, 3);
   return (
-    <Section sectionTitle="Recent News" anchor="recent">
+    <Section sectionTitle="Blog" anchor="blog">
       <div className="flex -translate-y-10 flex-col gap-14 md:flex-row md:gap-6">
         {recentPosts?.length > 0 &&
           recentPosts?.map((post) => <PostCard key={post?._id} post={post} />)}
