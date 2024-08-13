@@ -31,7 +31,7 @@ export const Gates = ({ gateOpen, setGateOpen }: GatesProps) => {
         </button>
       </div>
       <div
-        className={`col-start-3 col-end-7 row-start-3 row-end-5 translate-x-[100%] content-center overflow-x-clip duration-1000 md:translate-x-[100%] ${gateOpen && "translate-x-[5%] md:-translate-x-[-50%]"}`}
+        className={`col-start-3 col-end-7 row-start-3 row-end-5 translate-x-[100%] content-center overflow-x-clip duration-1000 duration-700 md:translate-x-[100%] ${gateOpen && "translate-x-[5%] md:translate-x-[50%]"}`}
       >
         <LongDog />
       </div>
