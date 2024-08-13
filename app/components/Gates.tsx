@@ -13,9 +13,9 @@ interface GatesProps {
 
 export const Gates = ({ gateOpen, setGateOpen }: GatesProps) => {
   return (
-    <div className="grid grid-cols-6 grid-rows-4">
+    <div className="grid h-[90vh] grid-flow-row grid-cols-6 grid-rows-4 overflow-x-clip">
       <div
-        className={`z-10 col-start-2 col-end-6 row-start-2 row-end-4 flex flex-col justify-center gap-6 text-center opacity-0 transition duration-700 ease-in md:min-w-[500px] ${gateOpen && "opacity-100"} ${!gateOpen && "pointer-events-none"}`}
+        className={`z-10 col-start-1 col-end-7 row-start-1 row-end-4 flex flex-col justify-center gap-6 p-2 text-center opacity-0 transition duration-1000 ease-in md:col-start-2 md:col-end-6 md:row-start-2 md:min-w-[500px] ${gateOpen && "opacity-100"} ${!gateOpen && "pointer-events-none"}`}
       >
         <h3 className="font-stint text-3xl font-bold text-silver-950 md:text-4xl">
           Public streets are for the public
@@ -31,7 +31,7 @@ export const Gates = ({ gateOpen, setGateOpen }: GatesProps) => {
         </button>
       </div>
       <div
-        className={`col-start-6 row-start-4 translate-x-[100%] duration-1000 ${gateOpen && "col-start-5 -translate-x-[125%]"}`}
+        className={`col-start-3 col-end-7 row-start-3 row-end-5 translate-x-[100%] content-center overflow-x-clip duration-1000 md:translate-x-[100%] ${gateOpen && "translate-x-[5%] md:-translate-x-[-50%]"}`}
       >
         <LongDog />
       </div>
@@ -46,20 +46,18 @@ export const Gates = ({ gateOpen, setGateOpen }: GatesProps) => {
         <Image src="/bus_stop.svg" alt="test" width={240} height={240} />
       </div>
       <div className="col-start-1 col-end-7 row-start-1 row-end-5">
-        <div className="bg-bglite flex h-[500px] w-full flex-row items-center justify-center overflow-clip py-6 md:h-full">
+        <div className="bg-bglite flex h-full w-full flex-row items-center justify-center overflow-clip py-6">
           <div
-            className={`flex w-full justify-end pr-2 duration-500 ${gateOpen && "-translate-x-[50%]"}`}
+            className={`flex w-full justify-end pr-2 duration-1000 ${gateOpen && "-translate-x-[50vw] md:-translate-x-[34vw]"}`}
           >
             <GateLeft />
           </div>
           <div
-            className={`flex w-full justify-start pl-2 duration-500 ${gateOpen && "translate-x-[50%]"}`}
+            className={`flex w-full justify-start pl-2 duration-1000 ${gateOpen && "translate-x-[50vw] md:translate-x-[34vw]"}`}
           >
             <GateRight />
           </div>
-          <div
-            className={`absolute z-50 hover:animate-[shake_.5s_infinite] hover:cursor-pointer ${gateOpen && "hidden"}`}
-          >
+          <div className={`absolute z-50 ${gateOpen && "hidden"}`}>
             <LockButton gateOpen={gateOpen} setGateOpen={setGateOpen} />
           </div>
         </div>

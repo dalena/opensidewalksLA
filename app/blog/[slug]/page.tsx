@@ -17,17 +17,19 @@ export const revalidate = 60;
 const page = async ({ params }: Params) => {
   const post: Post = await getSinglePost(params?.slug);
   return (
-    <section className="text-white w-full">
-      <div className="relative flex h-[500px] w-full justify-center overflow-clip rounded-2xl shadow-xl">
-        <Image
-          src={post?.image}
-          alt={post?.title}
-          width={1920}
-          height={1080}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+    <section className="text-white mt-20 w-full px-2 md:mt-4">
+      <div className="flex h-full w-full justify-center">
+        <div className="w-fit rounded-2xl md:h-[50vh] lg:h-[60vh]">
+          <Image
+            src={post?.image}
+            alt={post?.title}
+            width={1920}
+            height={1080}
+            className="h-full w-full rounded-2xl object-contain"
+          />
+        </div>
       </div>
-      <div className="-translate-y-52 md:-translate-y-32">
+      <div className="-translate-y-[4vh] lg:-translate-y-[14vh]">
         <PostBox>
           <div className="flex flex-row gap-2 md:gap-4">
             <div>

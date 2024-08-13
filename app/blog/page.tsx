@@ -4,7 +4,7 @@ import React from "react";
 import { Section } from "../components/Section";
 import PostCard from "../components/PostCard";
 
-const Blog = async () => {
+const BlogPage = async () => {
   const posts: Post[] = await getPosts();
 
   return (
@@ -20,4 +20,4 @@ const Blog = async () => {
   );
 };
 
-export default Blog;
+export default BlogPage;

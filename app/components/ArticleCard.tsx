@@ -52,6 +52,7 @@ export default ArticleCard;
 
 const cardStyle = `
     mb-8
+    bg-silver-200
     p-4
     rounded-3xl
     transition ease-in-out

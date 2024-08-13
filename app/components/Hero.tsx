@@ -23,7 +23,7 @@ export const Hero = () => {
   }, [gateOpen]);
 
   return (
-    <section className="h-full w-full overflow-x-hidden md:pt-[40px]">
+    <section id="#hero" className="h-full w-full overflow-x-hidden">
       <div className="hidden">
         <div className={classesGateOpen}></div>
         <div className={classesGateClosed}></div>

@@ -11,9 +11,9 @@ const AddMessage = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const labelClasses = "font-broadacre text-base pb-2";
+  const labelClasses = "font-broadacre text-base pb-2 text-silver-700";
   const inputClasses =
-    "mb-2 md:mb-8 rounded-md bg-silver-200 text-silver-100 p-2";
+    "mb-2 md:mb-8 rounded-md bg-silver-300 text-silver-950 p-2";
   const errorClasses =
     "mb-2 font-broadacre text-sm w-fit h-fit px-2 rounded-xl underline decoration-wavy underline-offset-4 decoration-stop-400";
   const labelErrorClasses = "flex flex-row gap-6 items-center justify-between";
@@ -35,7 +35,7 @@ const AddMessage = () => {
 
   return (
     <form
-      className="flex w-full flex-col rounded-2xl border-2 bg-silver-300 p-8 text-silver-950"
+      className="flex w-full flex-col rounded-2xl border-2 bg-silver-200 p-8 text-silver-950"
       onSubmit={handleSubmit((data) => onSubmit(data))}
     >
       <div className="flex w-full flex-col justify-center gap-2 text-center">

@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 interface LockButtonProps {
   gateOpen: boolean;
   setGateOpen: (open: boolean) => void;
 }
 
 const LockButton: React.FC<LockButtonProps> = ({ gateOpen, setGateOpen }) => {
+  const [timeoutSet, setTimeoutSet] = useState(false);
+
+  useEffect(() => {
+    if (!timeoutSet) {
+      const timer = setTimeout(() => {
+        setGateOpen(!gateOpen);
+        setTimeoutSet(true);
+      }, 10); // 5000ms = 5 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, [timeoutSet, gateOpen, setGateOpen]);
+
   return (
     <button
-      onClick={() => setGateOpen(!gateOpen)}
+      // onClick={() => setGateOpen(!gateOpen)}
       className="drop-shadow-[2px_14px_24px_rgba(48,48,48,0.9)] duration-700 hover:ring-stop-500"
       title="Help us unlock the gates!"
     >

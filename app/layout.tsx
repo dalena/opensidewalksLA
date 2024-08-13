@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`h-[100vh] overflow-x-hidden bg-silver-300 ${broadacre.variable} ${stint.variable} ${overpass.variable} ${adwts.variable} ${balto.variable} ${area.variable}`}
+        className={`h-[100vh] overflow-x-hidden bg-silver-300 text-silver-950 ${broadacre.variable} ${stint.variable} ${overpass.variable} ${adwts.variable} ${balto.variable} ${area.variable}`}
       >
         <div id="gradient" className={`h-full w-full bg-silver-300`}>
           <Header />

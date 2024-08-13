@@ -11,7 +11,7 @@ const navLinks = [
 
 export const Nav = () => {
   return (
-    <nav className="mb-[150px] md:mb-[120px]">
+    <nav className="pb-[8vh]">
       <div className="fixed top-0 z-50 w-full py-6 md:p-8">
         <div className="container mx-auto flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="text-center font-balto text-xl font-bold md:text-2xl">
@@ -29,7 +29,11 @@ export const Nav = () => {
                 className="transition ease-in-out hover:underline hover:decoration-wavy hover:underline-offset-4"
               >
                 {link.isScroll ? (
-                  <ScrollToAnchor anchor={link.href.substring(1)} offset={80}>
+                  <ScrollToAnchor
+                    anchor={link.href.substring(1)}
+                    mobileOffset={150}
+                    desktopOffset={80}
+                  >
                     {link.label}
                   </ScrollToAnchor>
                 ) : (

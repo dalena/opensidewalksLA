@@ -20,7 +20,7 @@ const QaCard = ({ question }: Props) => {
       <Accordion type="single" collapsible>
         <AccordionItem
           value="item-1"
-          className="m-0 rounded-lg border-2 px-6 font-overpass text-base duration-300 hover:scale-[101%] hover:bg-silver-400 md:text-xl"
+          className="m-0 rounded-lg border-2 bg-silver-200 px-6 font-overpass text-base duration-300 hover:scale-[101%] hover:bg-silver-100 md:text-xl"
         >
           <AccordionTrigger className="text-left font-bold tracking-wider hover:no-underline">
             {question?.question}
