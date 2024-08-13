@@ -13,7 +13,7 @@ interface GatesProps {
 
 export const Gates = ({ gateOpen, setGateOpen }: GatesProps) => {
   return (
-    <div className="grid h-[90vh] grid-flow-row grid-cols-6 grid-rows-4 overflow-x-clip">
+    <div className="grid h-[90vh] grid-flow-row grid-cols-6 grid-rows-4 overflow-x-clip md:pt-10">
       <div
         className={`z-10 col-start-1 col-end-7 row-start-1 row-end-4 flex flex-col justify-center gap-6 p-2 text-center opacity-0 transition duration-1000 ease-in md:col-start-2 md:col-end-6 md:row-start-2 md:min-w-[500px] ${gateOpen && "opacity-100"} ${!gateOpen && "pointer-events-none"}`}
       >
@@ -31,7 +31,7 @@ export const Gates = ({ gateOpen, setGateOpen }: GatesProps) => {
         </button>
       </div>
       <div
-        className={`col-start-3 col-end-7 row-start-3 row-end-5 translate-x-[100%] content-center overflow-x-clip duration-1000 duration-700 md:translate-x-[100%] ${gateOpen && "translate-x-[5%] md:translate-x-[50%]"}`}
+        className={`col-start-3 col-end-7 row-start-3 row-end-5 translate-x-[100%] content-center overflow-x-clip duration-1000 md:translate-x-[100%] ${gateOpen && "translate-x-[5%] md:translate-x-[50%]"}`}
       >
         <LongDog />
       </div>
@@ -41,7 +41,7 @@ export const Gates = ({ gateOpen, setGateOpen }: GatesProps) => {
         <Image src="/home.svg" alt="test" width={240} height={240} />
       </div>
       <div
-        className={`col-start-5 col-end-6 row-start-1 rotate-12 self-end justify-self-start opacity-0 duration-1000 md:row-start-1 md:justify-self-start ${gateOpen && "opacity-100"}`}
+        className={`md:row-start-10md:justify-self-start col-start-5 col-end-6 row-start-1 rotate-12 self-end justify-self-start opacity-0 duration-1000 ${gateOpen && "opacity-100"}`}
       >
         <Image src="/bus_stop.svg" alt="test" width={240} height={240} />
       </div>

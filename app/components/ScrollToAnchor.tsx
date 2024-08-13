@@ -22,22 +22,30 @@ const ScrollToAnchor = ({
     const storedAnchor = sessionStorage.getItem("scrollToAnchor");
     if (storedAnchor) {
       sessionStorage.removeItem("scrollToAnchor");
+      console.log(`Scrolling to stored anchor: ${storedAnchor}`);
       scrollToTargetSection(storedAnchor, mobileOffset, desktopOffset);
     }
   }, [pathname, mobileOffset, desktopOffset]);
 
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     e.preventDefault();
+    e.stopPropagation();
 
-    // Save the anchor to session storage
+    console.log(`Anchor clicked: ${anchor}`);
     sessionStorage.setItem("scrollToAnchor", anchor);
 
     if (pathname !== "/") {
-      // If on a subpage, navigate to the homepage
-      router.push("/"); // Scrolling will be handled by useEffect after navigation
+      console.log(`Navigating to home page`);
+      router.push("/");
     } else {
-      // If already on the homepage, directly scroll to the target section
-      scrollToTargetSection(anchor, mobileOffset, desktopOffset);
+      const currentHash = window.location.hash;
+      if (currentHash === `#${anchor}`) {
+        console.log(`Refreshing the page`);
+        window.location.reload();
+      } else {
+        console.log(`Scrolling to anchor: ${anchor}`);
+        scrollToTargetSection(anchor, mobileOffset, desktopOffset);
+      }
     }
   };
 
@@ -55,18 +63,24 @@ const ScrollToAnchor = ({
         element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - offset;
 
+      console.log(`Scrolling to position: ${offsetPosition}`);
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
       });
 
-      // Update the URL with the anchor hash
       window.history.replaceState({}, "", `/#${anchor}`);
+    } else {
+      console.log(`Element with id ${anchor} not found`);
     }
   };
 
   return (
-    <span onClick={handleClick} {...props}>
+    <span
+      onClick={handleClick}
+      {...props}
+      style={{ display: "inline-block", cursor: "pointer" }}
+    >
       {children}
     </span>
   );
