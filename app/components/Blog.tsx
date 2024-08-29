@@ -8,7 +8,11 @@ export const revalidate = 60;
 
 export default async function Blog() {
   const posts: Post[] = await getPosts();
+  console.log("Fetched posts:", posts); // Debugging log
+
   const recentPosts = posts?.slice(0, 3);
+  console.log("Recent posts:", recentPosts); // Debugging log
+
   return (
     <Section sectionTitle="Blog" anchor="blog">
       <div className="flex -translate-y-10 flex-col gap-14 md:flex-row md:gap-6">

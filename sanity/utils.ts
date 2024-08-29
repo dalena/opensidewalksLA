@@ -2,7 +2,7 @@ import { client } from "@/sanity/lib/client";
 
 export async function getPosts() {
   const query = `
- *[_type == "post"] {
+ *[_type == "post"] | order(publishedAt desc) {
   title,
   slug,
   "image": image.asset->url,
@@ -15,6 +15,7 @@ export async function getPosts() {
 }
  `;
   const data = await client.fetch(query);
+  console.log("Fetched posts:", data); // Debugging log
   return data;
 }
 
