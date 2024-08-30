@@ -1,13 +1,15 @@
+import { sanityFetch } from "@/sanity/lib/client";
+import { postQuery } from "@/sanity/utils";
 import { Post } from "@/app/utils/interface";
-import { getPosts } from "@/sanity/utils";
 import React from "react";
 import { Section } from "../../components/Section";
 import PostCard from "../../components/PostCard";
 
-export const revalidate = 60;
-
-const BlogPage = async () => {
-  const posts: Post[] = await getPosts();
+export default async function BlogPage() {
+  const posts: Post[] = await sanityFetch({
+    query: postQuery,
+    tags: ["post"],
+  });
 
   return (
     <div className="">
@@ -20,6 +22,4 @@ const BlogPage = async () => {
       </Section>
     </div>
   );
-};
-
-export default BlogPage;
+}

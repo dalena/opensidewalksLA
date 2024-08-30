@@ -1,12 +1,15 @@
+import { sanityFetch } from "@/sanity/lib/client";
+import { articleQuery } from "@/sanity/utils";
 import { Article } from "@/app/utils/interface";
-import { getArticles } from "@/sanity/utils";
 import React from "react";
 import { Section } from "../../components/Section";
 import ArticleCard from "../../components/ArticleCard";
 
-const ArticlePage = async () => {
-  const article: Article[] = await getArticles();
-
+export default async function ArticlePage() {
+  const article: Article[] = await sanityFetch({
+    query: articleQuery,
+    tags: ["post"],
+  });
   return (
     <div className="">
       <Section sectionTitle="Articles" anchor="null">
@@ -18,6 +21,4 @@ const ArticlePage = async () => {
       </Section>
     </div>
   );
-};
-
-export default ArticlePage;
+}

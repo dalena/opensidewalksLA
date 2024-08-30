@@ -1,11 +1,16 @@
-import { getArticles } from "@/sanity/utils";
+import { sanityFetch } from "@/sanity/lib/client";
+import { articleQuery } from "@/sanity/utils";
 import { Article } from "@/app/utils/interface";
 import { Section } from "./Section";
 import ArticleCard from "./ArticleCard";
 import Button from "./Button";
 
 export default async function Articles() {
-  const articles: Article[] = await getArticles();
+  const articles: Article[] = await sanityFetch({
+    query: articleQuery,
+    tags: ["post"],
+  });
+
   return (
     <Section sectionTitle="Articles" anchor="articles">
       <div className="mx-0 flex flex-col gap-6">

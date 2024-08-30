@@ -1,7 +1,8 @@
+import type { Article } from "@/app/utils/interface"; // Type-only import
+import { sanityFetch } from "@/sanity/lib/client";
 import { PostBox } from "@/app/components/PostBox";
-import { Article } from "@/app/utils/interface";
 import { PortableText } from "@portabletext/react";
-import { getSingleArticle, getArticles } from "@/sanity/utils";
+import { singleArticleQuery } from "@/sanity/utils"; // Updated to use singleArticleQuery
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
@@ -13,17 +14,18 @@ interface Params {
   };
 }
 
-export const dynamicParams = true;
+export default async function Page({ params }: { params: { slug: string } }) {
+  // Fetch the article data using the slug
+  const article: Article = await sanityFetch({
+    query: singleArticleQuery(params.slug), // Pass the slug to the query
+    tags: ["post"],
+  });
 
-export async function generateStaticParams() {
-  const articles = await getArticles(); // Assuming you have a function to get all articles
-  return articles.map((article: Article) => ({
-    slug: article.slug.current,
-  }));
-}
+  // Handle case when the article is not found
+  if (!article) {
+    return <p>No article found.</p>;
+  }
 
-const Page = async ({ params }: Params) => {
-  const article: Article = await getSingleArticle(params?.slug);
   return (
     <div>
       <section className="text-white w-full md:px-4">
@@ -68,9 +70,7 @@ const Page = async ({ params }: Params) => {
       </section>
     </div>
   );
-};
-
-export default Page;
+}
 
 const myPortableTextComponents = {
   types: {

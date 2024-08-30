@@ -1,7 +1,8 @@
+import type { Post } from "@/app/utils/interface"; // Type-only import
+import { sanityFetch } from "@/sanity/lib/client";
 import { PostBox } from "@/app/components/PostBox";
-import { Post } from "@/app/utils/interface";
 import { PortableText } from "@portabletext/react";
-import { getSinglePost, getPosts } from "@/sanity/utils";
+import { singlePostQuery } from "@/sanity/utils";
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
@@ -12,27 +13,27 @@ interface Params {
   };
 }
 
-// Revalidate the page every 60 seconds
-export const revalidate = 60;
+export default async function PostComponent({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post: Post = await sanityFetch({
+    query: singlePostQuery(params.slug), // Pass the slug here
+    tags: ["post"],
+  });
 
-export const dynamicParams = true; // This allows for on-demand ISR
+  if (!post) {
+    return <p>No content found.</p>;
+  }
 
-export async function generateStaticParams() {
-  const posts = await getPosts(); // Assuming you have a function to get all posts
-  return posts.map((post: Post) => ({
-    slug: post.slug.current,
-  }));
-}
-
-const Page = async ({ params }: Params) => {
-  const post: Post = await getSinglePost(params?.slug);
   return (
     <section className="text-white mt-20 w-full px-2 md:mt-4">
       <div className="flex h-full w-full justify-center">
         <div className="w-fit rounded-2xl md:h-[50vh] lg:h-[60vh]">
           <Image
-            src={post?.image}
-            alt={post?.title}
+            src={post.image}
+            alt={post.title}
             width={1920}
             height={1080}
             className="h-full w-full rounded-2xl object-contain"
@@ -71,9 +72,7 @@ const Page = async ({ params }: Params) => {
       </div>
     </section>
   );
-};
-
-export default Page;
+}
 
 const myPortableTextComponents = {
   types: {
