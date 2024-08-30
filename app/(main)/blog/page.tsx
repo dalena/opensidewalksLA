@@ -4,6 +4,8 @@ import React from "react";
 import { Section } from "../../components/Section";
 import PostCard from "../../components/PostCard";
 
+export const revalidate = 60;
+
 const BlogPage = async () => {
   const posts: Post[] = await getPosts();
 

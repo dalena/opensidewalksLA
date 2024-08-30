@@ -3,8 +3,6 @@ import { Question } from "@/app/utils/interface";
 import { Section } from "./Section";
 import QaCard from "./QaCard";
 
-export const revalidate = 0;
-
 export default async function Faq() {
   const questions: Question[] = await getQuestions();
   return (

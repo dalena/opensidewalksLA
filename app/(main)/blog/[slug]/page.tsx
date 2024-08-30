@@ -1,7 +1,7 @@
 import { PostBox } from "@/app/components/PostBox";
 import { Post } from "@/app/utils/interface";
 import { PortableText } from "@portabletext/react";
-import { getSinglePost } from "@/sanity/utils";
+import { getSinglePost, getPosts } from "@/sanity/utils";
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
@@ -12,9 +12,19 @@ interface Params {
   };
 }
 
-export const revalidate = 0;
+// Revalidate the page every 60 seconds
+export const revalidate = 60;
 
-const page = async ({ params }: Params) => {
+export const dynamicParams = true; // This allows for on-demand ISR
+
+export async function generateStaticParams() {
+  const posts = await getPosts(); // Assuming you have a function to get all posts
+  return posts.map((post: Post) => ({
+    slug: post.slug.current,
+  }));
+}
+
+const Page = async ({ params }: Params) => {
   const post: Post = await getSinglePost(params?.slug);
   return (
     <section className="text-white mt-20 w-full px-2 md:mt-4">
@@ -63,7 +73,7 @@ const page = async ({ params }: Params) => {
   );
 };
 
-export default page;
+export default Page;
 
 const myPortableTextComponents = {
   types: {

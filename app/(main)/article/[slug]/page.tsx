@@ -1,7 +1,7 @@
 import { PostBox } from "@/app/components/PostBox";
 import { Article } from "@/app/utils/interface";
 import { PortableText } from "@portabletext/react";
-import { getSingleArticle } from "@/sanity/utils";
+import { getSingleArticle, getArticles } from "@/sanity/utils";
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
@@ -13,7 +13,16 @@ interface Params {
   };
 }
 
-const page = async ({ params }: Params) => {
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const articles = await getArticles(); // Assuming you have a function to get all articles
+  return articles.map((article: Article) => ({
+    slug: article.slug.current,
+  }));
+}
+
+const Page = async ({ params }: Params) => {
   const article: Article = await getSingleArticle(params?.slug);
   return (
     <div>
@@ -61,7 +70,7 @@ const page = async ({ params }: Params) => {
   );
 };
 
-export default page;
+export default Page;
 
 const myPortableTextComponents = {
   types: {

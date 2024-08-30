@@ -13,7 +13,6 @@ import {
 interface Props {
   question: Question;
 }
-export const revalidate = 0;
 
 const QaCard = ({ question }: Props) => {
   return (

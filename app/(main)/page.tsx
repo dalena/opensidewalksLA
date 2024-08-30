@@ -6,6 +6,8 @@ import Articles from "../components/Articles";
 import Faq from "../components/Faq";
 import { Contact } from "../components/Contact";
 
+export const revalidate = 60;
+
 const Page = () => {
   return (
     <>

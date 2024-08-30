@@ -4,8 +4,6 @@ import { Section } from "./Section";
 import PostCard from "./PostCard";
 import Button from "./Button";
 
-export const revalidate = 0;
-
 export default async function Blog() {
   const posts: Post[] = await getPosts();
   const recentPosts = posts?.slice(0, 3);
