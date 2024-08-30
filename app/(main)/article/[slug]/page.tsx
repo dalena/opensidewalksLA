@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   // Fetch the article data using the slug
   const article: Article = await sanityFetch({
     query: singleArticleQuery(params.slug), // Pass the slug to the query
-    tags: ["post"],
+    tags: ["article"],
   });
 
   // Handle case when the article is not found

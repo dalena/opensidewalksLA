@@ -8,7 +8,7 @@ import ArticleCard from "../../components/ArticleCard";
 export default async function ArticlePage() {
   const article: Article[] = await sanityFetch({
     query: articleQuery,
-    tags: ["post"],
+    tags: ["article"],
   });
   return (
     <div className="">

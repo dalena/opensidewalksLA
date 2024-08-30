@@ -8,14 +8,16 @@ import Button from "./Button";
 export default async function Articles() {
   const articles: Article[] = await sanityFetch({
     query: articleQuery,
-    tags: ["post"],
+    tags: ["article"],
   });
+
+  const recentArticles = articles?.slice(0, 5);
 
   return (
     <Section sectionTitle="Articles" anchor="articles">
       <div className="mx-0 flex flex-col gap-6">
-        {articles?.length > 0 &&
-          articles?.map((article) => (
+        {recentArticles?.length > 0 &&
+          recentArticles?.map((article) => (
             <ArticleCard key={article?._id} article={article} />
           ))}
       </div>
