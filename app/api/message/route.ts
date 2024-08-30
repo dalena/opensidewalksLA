@@ -8,7 +8,7 @@ export async function POST(req: Request, res: Response) {
     dataset,
     apiVersion,
     token: process.env.SANITY_TOKEN,
-    useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
+    useCdn: false, // Set to false if statically generating pages, using ISR or tag-based revalidation
   });
 
   const data = await req.json();
