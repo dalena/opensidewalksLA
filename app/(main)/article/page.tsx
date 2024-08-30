@@ -1,8 +1,8 @@
 import { Article } from "@/app/utils/interface";
 import { getArticles } from "@/sanity/utils";
 import React from "react";
-import { Section } from "../components/Section";
-import ArticleCard from "../components/ArticleCard";
+import { Section } from "../../components/Section";
+import ArticleCard from "../../components/ArticleCard";
 const ArticlePage = async () => {
   const article: Article[] = await getArticles();
 

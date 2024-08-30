@@ -6,6 +6,7 @@ import Image from "next/image";
 interface Props {
   post: Post;
 }
+export const revalidate = 60;
 
 const PostCard = ({ post }: Props) => {
   return (
@@ -49,13 +50,13 @@ const PostCard = ({ post }: Props) => {
 export default PostCard;
 
 const cardStyle = `
+    w-full
     bg-silver-200
     mb-8
     pb-6
     p-4
     rounded-3xl
     transition ease-in-out
-    md:w-[33%]
     translate-y-24
     hover:z-50
     hover:scale-105

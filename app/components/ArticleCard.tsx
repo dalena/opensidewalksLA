@@ -6,6 +6,7 @@ import Image from "next/image";
 interface Props {
   article: Article;
 }
+export const revalidate = 60;
 
 const ArticleCard = ({ article }: Props) => {
   return (
