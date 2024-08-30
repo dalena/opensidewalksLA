@@ -6,7 +6,7 @@ import Image from "next/image";
 interface Props {
   post: Post;
 }
-export const revalidate = 60;
+export const revalidate = 0;
 
 const PostCard = ({ post }: Props) => {
   return (
@@ -35,12 +35,14 @@ const PostCard = ({ post }: Props) => {
               className="h-full w-full object-cover"
             />
           </div>
-          <h2 className="relative mt-32 font-balto text-xl font-bold tracking-wide lg:text-2xl">
-            {post?.title}
-          </h2>
-          <p className="relative line-clamp-4 self-end font-overpass text-base">
-            {post?.excerpt}
-          </p>
+          <div className="flex h-full flex-col justify-between">
+            <h2 className="relative mt-32 flex min-h-[25%] flex-col justify-center font-balto text-xl font-bold tracking-wide lg:text-2xl">
+              {post?.title}
+            </h2>
+            <p className="relative line-clamp-4 self-end font-overpass text-base">
+              {post?.excerpt}
+            </p>
+          </div>
         </div>
       </Link>
     </>

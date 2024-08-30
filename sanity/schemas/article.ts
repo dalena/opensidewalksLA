@@ -61,7 +61,7 @@ export const article = {
         { type: "block" },
         {
           type: "image",
-          fields: [{ type: "text", name: "alt", title: "Alt" }],
+          fields: [{type: "text", name: "caption", title: "Caption"},{ type: "text", name: "alt", title: "Alt" }],
         },
       ],
     },

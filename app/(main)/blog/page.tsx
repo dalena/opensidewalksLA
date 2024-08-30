@@ -10,7 +10,7 @@ const BlogPage = async () => {
   return (
     <div className="">
       <Section sectionTitle="Blog" anchor="null">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-6">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           {posts.map((post) => (
             <PostCard key={post?._id} post={post} />
           ))}

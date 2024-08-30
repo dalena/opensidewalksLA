@@ -13,7 +13,7 @@ import {
 interface Props {
   question: Question;
 }
-export const revalidate = 60;
+export const revalidate = 0;
 
 const QaCard = ({ question }: Props) => {
   return (
@@ -55,7 +55,6 @@ prose-headings:mb-1
 prose-headings:text-2xl
 prose-headings:font-bold
 prose-p:mb-3
-lg:prose-p:mb-4
 prose-p:leading-12
 prose-li:list-disc
 prose-li:leading-12

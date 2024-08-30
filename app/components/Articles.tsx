@@ -4,7 +4,7 @@ import { Section } from "./Section";
 import ArticleCard from "./ArticleCard";
 import Button from "./Button";
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 export default async function Articles() {
   const articles: Article[] = await getArticles();

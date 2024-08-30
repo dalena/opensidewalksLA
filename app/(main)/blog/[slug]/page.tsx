@@ -12,7 +12,7 @@ interface Params {
   };
 }
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 const page = async ({ params }: Params) => {
   const post: Post = await getSinglePost(params?.slug);
@@ -68,7 +68,18 @@ export default page;
 const myPortableTextComponents = {
   types: {
     image: ({ value }: any) => (
-      <Image src={urlFor(value).url()} alt="post" width={700} height={700} />
+      <div className="flex w-full flex-col justify-center">
+        <Image
+          src={urlFor(value).url()}
+          alt={value.alt}
+          width={700}
+          height={700}
+          className="self-center rounded-xl border border-silver-950 shadow-2xl"
+        />
+        <p className="max-w-[700px] self-center py-8 text-md italic">
+          {value.caption}
+        </p>
+      </div>
     ),
   },
 };
@@ -89,5 +100,5 @@ lg:prose-p:mb-4
 prose-p:leading-12
 prose-li:list-disc
 prose-li:leading-12
-prose-li:ml-6
+prose-li:ml-10
 `;
