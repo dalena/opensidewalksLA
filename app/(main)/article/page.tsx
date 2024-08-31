@@ -4,6 +4,12 @@ import { Article } from "@/app/utils/interface";
 import React from "react";
 import { Section } from "../../components/Section";
 import ArticleCard from "../../components/ArticleCard";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Articles",
+  description: "A collection of articles related to Open Sidewalks LA",
+};
 
 export default async function ArticlePage() {
   const article: Article[] = await sanityFetch({

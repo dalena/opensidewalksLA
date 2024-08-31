@@ -4,6 +4,12 @@ import { Post } from "@/app/utils/interface";
 import React from "react";
 import { Section } from "../../components/Section";
 import PostCard from "../../components/PostCard";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Learn about notices, events, and research by Open Sidewalks LA",
+};
 
 export default async function BlogPage() {
   const posts: Post[] = await sanityFetch({

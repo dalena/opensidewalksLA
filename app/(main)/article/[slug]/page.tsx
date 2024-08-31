@@ -7,7 +7,42 @@ import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 
+export async function generateMetadata({
+  params,
+}: Params): Promise<Metadata | undefined> {
+  const article: Article | null = await sanityFetch({
+    query: singleArticleQuery(params.slug),
+    qParams: {},
+    tags: ["post"],
+  });
+
+  if (!article) {
+    return undefined;
+  }
+
+  return {
+    title: article.title,
+    description: article.excerpt,
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      type: "article",
+      locale: "en_US",
+      url: `https://opensidewalks.la/${params.slug}`,
+      siteName: "Open Sidewalks LA",
+      images: [
+        {
+          url: article.image,
+          alt: article.title,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
 interface Params {
   params: {
     slug: string;

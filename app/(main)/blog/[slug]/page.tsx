@@ -6,6 +6,42 @@ import { singlePostQuery } from "@/sanity/utils";
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: Params): Promise<Metadata | undefined> {
+  const post: Post | null = await sanityFetch({
+    query: singlePostQuery(params.slug),
+    qParams: {},
+    tags: ["post"],
+  });
+
+  if (!post) {
+    return undefined;
+  }
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      locale: "en_US",
+      url: `https://opensidewalks.la/${params.slug}`,
+      siteName: "Open Sidewalks LA",
+      images: [
+        {
+          url: post.image,
+          alt: post.title,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
 
 interface Params {
   params: {
@@ -19,7 +55,7 @@ export default async function PostComponent({
   params: { slug: string };
 }) {
   const post: Post = await sanityFetch({
-    query: singlePostQuery(params.slug), // Pass the slug here
+    query: singlePostQuery(params.slug),
     tags: ["post"],
   });
 
