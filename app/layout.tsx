@@ -1,12 +1,31 @@
 import "./globals.css";
 import { broadacre, stint, overpass, adwts, balto, area } from "./fonts";
 import { Metadata } from "next";
+import image from "../public/og.png";
 
 export const metadata: Metadata = {
-  title: "Open Sidewalks LA",
-  description: "Public spaces are for everyone",
+  metadataBase: new URL("https://opensidewalks.la/"),
+  title: {
+    default: "Open Sidewalks LA",
+    template: "%s | Open Sidewalks LA",
+  },
+  description:
+    "Public spaces are for everyone. Sign our petition, and let's open the gates!",
+  openGraph: {
+    title: "Open Sidewalks LA",
+    description:
+      "Public spaces are for everyone. Sign our petition, and let's open the gates!",
+    type: "website",
+    locale: "en_US",
+    url: "https://opensidewalks.la/",
+    siteName: "Open Sidewalks LA",
+    images: [
+      {
+        url: image.src,
+      },
+    ],
+  },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
