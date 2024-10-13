@@ -5,7 +5,7 @@ import ScrollToAnchor from "./ScrollToAnchor";
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#blog", label: "Blog" },
-  { href: "#articles", label: "Articles" },
+  { href: "#press", label: "Press" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
 ];

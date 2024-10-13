@@ -14,7 +14,7 @@ export default async function Articles() {
   const recentArticles = articles?.slice(0, 5);
 
   return (
-    <Section sectionTitle="Articles" anchor="articles">
+    <Section sectionTitle="Press" anchor="press">
       <div className="mx-0 flex flex-col gap-6">
         {recentArticles?.length > 0 &&
           recentArticles?.map((article) => (

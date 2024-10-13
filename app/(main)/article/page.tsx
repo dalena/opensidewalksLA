@@ -7,7 +7,7 @@ import ArticleCard from "../../components/ArticleCard";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Articles",
+  title: "Press",
   description: "A collection of articles related to Open Sidewalks LA",
 };
 
@@ -18,7 +18,7 @@ export default async function ArticlePage() {
   });
   return (
     <div className="">
-      <Section sectionTitle="Articles" anchor="null">
+      <Section sectionTitle="Press" anchor="null">
         <div className="flex flex-col gap-6">
           {article.map((article) => (
             <ArticleCard key={article?._id} article={article} />
