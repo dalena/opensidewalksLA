@@ -7,7 +7,7 @@ import QaCard from "./QaCard";
 export default async function Faq() {
   const questions: Question[] = await sanityFetch({
     query: questionQuery,
-    tags: ["qa"],
+    tags: ["question"],
   });
   return (
     <Section sectionTitle="FAQ" anchor="faq">
