@@ -24,5 +24,12 @@ export const question = {
         },
       ],
     },
+    {
+      title: 'Tag',
+      name: 'tag',
+      type: 'reference',
+      to: [{type: 'tag'}],
+      initialValue: 'qa',
+    }
   ],
 };
