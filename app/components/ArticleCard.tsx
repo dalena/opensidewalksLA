@@ -15,13 +15,16 @@ const ArticleCard = ({ article }: Props) => {
       >
         <div className="flex w-full flex-col gap-6 md:flex-row">
           <div className="relative h-[240px] flex-none overflow-clip rounded-2xl shadow-xl md:w-[33%] md:-translate-x-16">
-            <Image
+            {
+              article.image &&
+              <Image
               src={article?.image}
               alt={article?.title}
               width={960}
               height={540}
               className="h-full w-full object-cover"
             />
+            }
           </div>
           <div className="flex-none md:w-[70%] md:-translate-x-14">
             <div className="flex w-full flex-row justify-between">

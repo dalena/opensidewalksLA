@@ -14,7 +14,7 @@ export default async function Blog() {
 
   return (
     <Section sectionTitle="Blog" anchor="blog">
-      <div className="flex -translate-y-10 flex-col gap-14 md:flex-row md:gap-6">
+      <div className="grid -translate-y-10 grid-cols-1 gap-14 md:grid-cols-3 md:gap-6">
         {recentPosts?.length > 0 &&
           recentPosts?.map((post) => <PostCard key={post?._id} post={post} />)}
       </div>

@@ -15,7 +15,7 @@ export const About = () => {
             First, the gates must be removed to completely restore vehicle and pedestrian access across all four streets.
           </li>
           <li className="py-2">
-            Then, the neighborhood can come together to decide what comes next, whether it's street improvements, community amenities, or something else.
+            Then, the neighborhood can come together to decide what comes next, whether it&rsquo;s street improvements, community amenities, or something else.
           </li>
           <li className="py-2">
             ALL residents, both north and south of Pico, must have an equal voice in these decisions. Unlike before, when residents south of the gates were not consulted, the outcome for each street MUST be determined democratically so we can move forward as a unified community.
