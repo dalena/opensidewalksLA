@@ -10,7 +10,7 @@ export default async function Blog() {
     query: postQuery,
     tags: ["post"],
   });
-  const recentPosts = posts?.slice(0, 3);
+  const recentPosts = posts?.slice(0, 6);
 
   return (
     <Section sectionTitle="Blog" anchor="blog">

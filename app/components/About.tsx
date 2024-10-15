@@ -6,28 +6,19 @@ export const About = () => {
   return (
     <Section sectionTitle="About" anchor="about">
       <p className="pb-6">
-        Open Sidewalks is a small group of neighbors who started organizing
-        around the issue of access to public streets after hearing about an
-        elderly disabled man who had to walk 0.5mi around the gates in Country
-        Club Park to catch his bus. We have collected over 250 signatures in
-        support of opening the gates.
+        Open Sidewalks LA is a volunteer group of neighbors organizing around the issue of public access to public streets. We are working to remove four unpermitted gates on Van Ness, Wilton, Gramercy, and St Andrews streets along Pico Boulevard. These gates privilege wealthy homeowners and create problems for working-class tenants in the neighborhood. The gates also hinder accessibility for seniors and disabled people, limit emergency services and public health sanitation, and block students on their commute to local schools. We have collected nearly 2,000 signatures from residents both north and south of the enclosure in support of removing the gates.
       </p>
-      <h3 className="py-8 text-3xl md:text-4xl">Policy Recommendation</h3>
+      <h3 className="py-8 text-3xl md:text-4xl">What We Want</h3>
       <InfoBox>
         <ul className="list-disc p-4">
           <li className="py-2">
-            Immediately restore ADA-compliant pedestrian access to all four
-            gated streets by removing the part of the gate that blocks the
-            sidewalk.
+            First, the gates must be removed to completely restore vehicle and pedestrian access across all four streets.
           </li>
           <li className="py-2">
-            Begin a neighborhood dialogue to discuss the controversial issue of
-            restoring car access in addition to pedestrian access.
+            Then, the neighborhood can come together to decide what comes next, whether it's street improvements, community amenities, or something else.
           </li>
           <li className="py-2">
-            Explore alternative traffic-calming measures that can improve
-            pedestrian safety without symbolically excluding half of the
-            neighborhood.
+            ALL residents, both north and south of Pico, must have an equal voice in these decisions. Unlike before, when residents south of the gates were not consulted, the outcome for each street MUST be determined democratically so we can move forward as a unified community.
           </li>
         </ul>
       </InfoBox>
