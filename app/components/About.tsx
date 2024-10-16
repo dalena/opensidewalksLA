@@ -10,15 +10,16 @@ export const About = () => {
       </p>
       <h3 className="py-8 text-3xl md:text-4xl">What We Want</h3>
       <InfoBox>
+        Because the gates are unpermitted, privately-owned property in the public right of way which unfairly burden the elderly, children, and people with disabilities…
         <ul className="list-disc p-4">
           <li className="py-2">
-            First, the gates must be removed to completely restore vehicle and pedestrian access across all four streets.
+            <strong>First, the gates must be removed</strong> to completely restore vehicle and pedestrian access across all four streets.
           </li>
           <li className="py-2">
-            Then, the neighborhood can come together to decide what comes next, whether it&rsquo;s street improvements, community amenities, or something else.
+            <strong>Then, the neighborhood can come together to decide what comes next</strong>, whether it&rsquo;s street improvements, community amenities, or something else. 
           </li>
           <li className="py-2">
-            ALL residents, both north and south of Pico, must have an equal voice in these decisions. Unlike before, when residents south of the gates were not consulted, the outcome for each street MUST be determined democratically so we can move forward as a unified community.
+          ALL residents, both north and south of Pico, must have an equal voice and opportunity for democratic participation in these decisions.
           </li>
         </ul>
       </InfoBox>
