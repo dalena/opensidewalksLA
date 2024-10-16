@@ -13,10 +13,10 @@ export const About = () => {
         Because the gates are unpermitted, privately-owned property in the public right of way which unfairly burden the elderly, children, and people with disabilities…
         <ul className="list-disc p-4">
           <li className="py-2">
-            <strong>First, the gates must be removed</strong> to completely restore vehicle and pedestrian access across all four streets.
+            <span className="underline">First, the gates must be removed</span> to completely restore vehicle and pedestrian access across all four streets.
           </li>
           <li className="py-2">
-            <strong>Then, the neighborhood can come together to decide what comes next</strong>, whether it&rsquo;s street improvements, community amenities, or something else. 
+            <span className="underline">Then, the neighborhood can come together to decide what comes next</span>, whether it&rsquo;s street improvements, community amenities, or something else. 
           </li>
           <li className="py-2">
           ALL residents, both north and south of Pico, must have an equal voice and opportunity for democratic participation in these decisions.
